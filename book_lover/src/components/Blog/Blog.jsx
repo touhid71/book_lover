@@ -1,8 +1,17 @@
 import PropTypes from "prop-types";
-import { GoBookmark } from "react-icons/go";
+import { useState } from "react";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 const Blog = ({ blog, handleAddToBookmark }) => {
   const { title, cover, author, author_img, reading_time, posted_date, hash_tag } = blog;
+
+  // State to track whether the blog is bookmarked
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  const toggleBookmark = () => {
+    setIsBookmarked(!isBookmarked); // Toggle bookmark state
+    handleAddToBookmark(blog); // Trigger parent function
+  };
 
   return (
     <div className="mb-6 p-4 border rounded-lg shadow-sm">
@@ -24,11 +33,15 @@ const Blog = ({ blog, handleAddToBookmark }) => {
         <div className="text-right">
           <span className="text-gray-600">{reading_time} Min Read</span>
           <button
-            onClick={() => handleAddToBookmark(blog)}
-            className="ml-3 text-xl text-blue-500 hover:text-blue-700"
+            onClick={toggleBookmark}
+            className="ml-3 text-xl mt-1"
             aria-label="Add to bookmarks"
           >
-            <GoBookmark />
+            {isBookmarked ? (
+              <AiFillHeart className="text-red-500" />
+            ) : (
+              <AiOutlineHeart className="text-gray-500" />
+            )}
           </button>
         </div>
       </div>

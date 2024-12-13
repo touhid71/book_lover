@@ -9,7 +9,7 @@ function App() {
 
   // Function to handle bookmark click
   const handleAddToBookmark = (blog) => {
-    console.log(`Bookmark Added: ${blog.title}`);
+    console.log(blog );
     setBookmarks([...bookmarks, blog]); // Optional: Update the bookmarks state
   };
 
@@ -18,7 +18,7 @@ function App() {
       <Header />
       <div className="md:flex max-w-4xl mx-auto">
         <Blogs handleAddToBookmark={handleAddToBookmark} />
-        <Bookmarks />
+        <Bookmarks bookmarks= {bookmarks}></Bookmarks>
       </div>
     </>
   );
