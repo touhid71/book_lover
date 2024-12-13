@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { BsBookmark, BsBookmarkFill } from "react-icons/bs"; // Bookmark icons
 
 const Blog = ({ blog, handleAddToBookmark }) => {
   const { title, cover, author, author_img, reading_time, posted_date, hash_tag } = blog;
@@ -38,9 +38,9 @@ const Blog = ({ blog, handleAddToBookmark }) => {
             aria-label="Add to bookmarks"
           >
             {isBookmarked ? (
-              <AiFillHeart className="text-red-500" />
+              <BsBookmarkFill className="text-red-500" />
             ) : (
-              <AiOutlineHeart className="text-gray-500" />
+              <BsBookmark className="text-gray-500" />
             )}
           </button>
         </div>
