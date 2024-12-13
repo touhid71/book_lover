@@ -6,7 +6,7 @@ import Header from "./components/Header/Header";
 
 function App() {
   const [bookmarks, setBookmarks] = useState([]);
-  const [notification, setNotification] = useState({ message: "", type: "" });
+  const [notification, setNotification] = useState({ message: "", type: "", visible: false });
 
   const handleAddToBookmark = (blog) => {
     const isAlreadyBookmarked = bookmarks.find((b) => b.id === blog.id);
@@ -17,6 +17,7 @@ function App() {
       setNotification({
         message: `Removed from bookmarks: ${blog.title}`,
         type: "remove", // Type for the background color (orange)
+        visible: true,
       });
     } else {
       // Otherwise, add it to the bookmarks
@@ -24,12 +25,13 @@ function App() {
       setNotification({
         message: `Added to bookmarks: ${blog.title}`,
         type: "add", // Type for the background color (deep green)
+        visible: true,
       });
     }
 
-    // Automatically clear the notification after 3 seconds
+    // Automatically hide the notification after 3 seconds
     setTimeout(() => {
-      setNotification({ message: "", type: "" });
+      setNotification((prevState) => ({ ...prevState, visible: false }));
     }, 3000);
   };
 

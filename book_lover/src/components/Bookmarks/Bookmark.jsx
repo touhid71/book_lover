@@ -9,10 +9,10 @@ const Bookmarks = ({ bookmarks, notification }) => {
     <div className="md:w-1/3">
       <h1 className="text-4xl">Bookmarked Blogs</h1>
       
-      {/* Display Notification */}
+      {/* Display Notification with animation */}
       {notification.message && (
         <div
-          className="notification p-4 rounded-lg my-4"
+          className={`notification p-4 rounded-lg my-4 ${notification.visible ? 'visible' : ''}`}
           style={{ backgroundColor: notificationBackground }}
         >
           {notification.message}
@@ -36,6 +36,7 @@ Bookmarks.propTypes = {
   notification: PropTypes.shape({
     message: PropTypes.string,
     type: PropTypes.string,
+    visible: PropTypes.bool,
   }).isRequired,
 };
 
