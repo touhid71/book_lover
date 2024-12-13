@@ -5,7 +5,6 @@
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Offset by half of its width and height */
-    background-color: #007bff; /* Blue background color */
     color: white;
     padding: 1rem;
     border-radius: 8px;
