@@ -32,7 +32,7 @@ function App() {
     // Automatically hide the notification after 3 seconds
     setTimeout(() => {
       setNotification((prevState) => ({ ...prevState, visible: false }));
-    }, 3000);
+    }, 2000);
   };
 
   return (
