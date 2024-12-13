@@ -1,16 +1,15 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
-import { BsBookmark, BsBookmarkFill } from "react-icons/bs"; // Bookmark icons
+import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
 
 const Blog = ({ blog, handleAddToBookmark }) => {
-  const { title, cover, author, author_img, reading_time, posted_date, hash_tag } = blog;
+  const { id, title, cover, author, author_img, reading_time, posted_date, hash_tag } = blog;
 
-  // State to track whether the blog is bookmarked
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   const toggleBookmark = () => {
-    setIsBookmarked(!isBookmarked); // Toggle bookmark state
-    handleAddToBookmark(blog); // Trigger parent function
+    setIsBookmarked(!isBookmarked); // Toggle the bookmark icon
+    handleAddToBookmark(blog); // Add or remove the bookmark
   };
 
   return (
@@ -35,7 +34,7 @@ const Blog = ({ blog, handleAddToBookmark }) => {
           <button
             onClick={toggleBookmark}
             className="ml-3 text-xl mt-1"
-            aria-label="Add to bookmarks"
+            aria-label="Toggle bookmark"
           >
             {isBookmarked ? (
               <BsBookmarkFill className="text-red-500" />
@@ -66,6 +65,7 @@ const Blog = ({ blog, handleAddToBookmark }) => {
 
 Blog.propTypes = {
   blog: PropTypes.shape({
+    id: PropTypes.number.isRequired, // Added 'id' to track each blog
     title: PropTypes.string.isRequired,
     cover: PropTypes.string.isRequired,
     author: PropTypes.string.isRequired,

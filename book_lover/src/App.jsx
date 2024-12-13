@@ -1,16 +1,22 @@
-import { useState } from 'react';
-import './App.css';
-import Bookmarks from './components/Bookmarks/Bookmark';
-import Blogs from './components/Header/Blogs/Blogs';
-import Header from './components/Header/Header';
+import { useState } from "react";
+import "./App.css";
+import Bookmarks from "./components/Bookmarks/Bookmark";
+import Blogs from "./components/Header/Blogs/Blogs";
+import Header from "./components/Header/Header";
 
 function App() {
   const [bookmarks, setBookmarks] = useState([]);
 
-  // Function to handle bookmark click
   const handleAddToBookmark = (blog) => {
-    console.log(blog );
-    setBookmarks([...bookmarks, blog]); // Optional: Update the bookmarks state
+    const isAlreadyBookmarked = bookmarks.find((b) => b.id === blog.id);
+
+    if (isAlreadyBookmarked) {
+      // If the blog is already bookmarked, remove it
+      setBookmarks(bookmarks.filter((b) => b.id !== blog.id));
+    } else {
+      // Otherwise, add it to the bookmarks
+      setBookmarks([...bookmarks, blog]);
+    }
   };
 
   return (
@@ -18,7 +24,7 @@ function App() {
       <Header />
       <div className="md:flex max-w-4xl mx-auto">
         <Blogs handleAddToBookmark={handleAddToBookmark} />
-        <Bookmarks bookmarks= {bookmarks}></Bookmarks>
+        <Bookmarks bookmarks={bookmarks} />
       </div>
     </>
   );
