@@ -7,7 +7,7 @@ const Bookmarks = ({ bookmarks, notification }) => {
 
   return (
     <div className="md:w-1/3">
-      <h1 className="text-4xl">Bookmarked Blogs</h1>
+      <h1 className="text-4xl">Bookmarked</h1>
       
       {/* Display Notification with animation */}
       {notification.message && (
