@@ -1,9 +1,7 @@
 import PropTypes from "prop-types";
 
-const Bookmarks = ({ bookmarks, notification }) => {
+const Bookmarks = ({ bookmarks }) => {
   // Determine the background color for notifications
-  const notificationBackground =
-    notification.type === "add" ? "#006400" : "#FF7F00"; // Deep green or orange
 
   return (
     <div className="md:w-1/3 ml-4 mt-11 pt-3">
@@ -11,16 +9,6 @@ const Bookmarks = ({ bookmarks, notification }) => {
         <h1 className="text-lg pl-9 bg-gradient-to-r from-gray-600 to-green-600 text-white pt-1 pb-1 rounded-t-md">
           Bookmarked Blogs: {bookmarks.length}
         </h1>
-
-        {/* Display Notification */}
-        {notification.message && (
-          <div
-            className="notification p-4 rounded-lg my-4"
-            style={{ backgroundColor: notificationBackground }}
-          >
-            {notification.message}
-          </div>
-        )}
 
         {/* Display List of Bookmarked Blogs */}
         <div className="m-2">
@@ -33,6 +21,7 @@ const Bookmarks = ({ bookmarks, notification }) => {
                 }`}
               >
                 <h3>{blog.title}</h3>
+                <p className="text-xs text-gray-500">(Reading Time: {blog.reading_time} min)</p>
               </div>
             ))
           ) : (
@@ -51,12 +40,7 @@ Bookmarks.propTypes = {
       title: PropTypes.string.isRequired,
       isNew: PropTypes.bool, // Field to determine if the item is new
     })
-  ).isRequired,
-  notification: PropTypes.shape({
-    message: PropTypes.string,
-    type: PropTypes.string,
-    visible: PropTypes.bool,
-  }).isRequired,
+  ).isRequired
 };
 
 export default Bookmarks;

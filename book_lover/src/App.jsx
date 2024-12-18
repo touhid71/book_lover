@@ -6,33 +6,18 @@ import Header from "./components/Header/Header";
 
 function App() {
   const [bookmarks, setBookmarks] = useState([]);
-  const [notification, setNotification] = useState({ message: "", type: "", visible: false });
-
   const handleAddToBookmark = (blog) => {
     const isAlreadyBookmarked = bookmarks.find((b) => b.id === blog.id);
 
     if (isAlreadyBookmarked) {
       // If the blog is already bookmarked, remove it
       setBookmarks(bookmarks.filter((b) => b.id !== blog.id));
-      setNotification({
-        message: `Removed from bookmarks: ${blog.title}`,
-        type: "remove", // Type for the background color (orange)
-        visible: true,
-      });
     } else {
       // Otherwise, add it to the bookmarks
       setBookmarks([...bookmarks, blog]);
-      setNotification({
-        message: `Added to bookmarks: ${blog.title}`,
-        type: "add", // Type for the background color (deep green)
-        visible: true,
-      });
+      
     }
 
-    // Automatically hide the notification after 3 seconds
-    setTimeout(() => {
-      setNotification((prevState) => ({ ...prevState, visible: false }));
-    }, 2000);
   };
 
   return (
@@ -40,7 +25,7 @@ function App() {
       <Header />
       <div className="md:flex max-w-4xl mx-auto">
         <Blogs handleAddToBookmark={handleAddToBookmark} />
-        <Bookmarks bookmarks={bookmarks} notification={notification} />
+        <Bookmarks bookmarks={bookmarks} />
       </div>
     </>
   );
