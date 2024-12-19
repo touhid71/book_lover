@@ -11,7 +11,7 @@ const Blog = ({ blog, handleAddToBookmark }) => {
     setIsBookmarked(!isBookmarked); // Toggle the bookmark icon
     handleAddToBookmark(blog); // Add or remove the bookmark
   };
-
+  
   return (
     <div className="mb-6 p-4 border rounded-lg shadow-sm">
       {/* Cover Image */}

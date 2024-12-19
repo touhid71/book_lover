@@ -1,14 +1,19 @@
 import PropTypes from "prop-types";
 
-const Bookmarks = ({ bookmarks }) => {
-  // Determine the background color for notifications
-
+const Bookmarks = ({ bookmarks, notification }) => {
   return (
-    <div className="md:w-1/3 ml-4 mt-11 pt-3">
-      <div className="bg-gray-300 rounded-md pb-1 sticky top-0 z-10">
-        <h1 className="text-lg pl-9 bg-gradient-to-r from-gray-600 to-green-600 text-white pt-1 pb-1 rounded-t-md">
+    <div className="bookmarks-container">
+      <div className="bookmarks-header">
+        <h1 className="bookmarks-title">
           Bookmarked Blogs: {bookmarks.length}
         </h1>
+
+        {/* Notification */}
+        {notification && (
+          <div className="notification">
+            {notification}
+          </div>
+        )}
 
         {/* Display List of Bookmarked Blogs */}
         <div className="m-2">
@@ -16,16 +21,16 @@ const Bookmarks = ({ bookmarks }) => {
             bookmarks.map((blog) => (
               <div
                 key={blog.id}
-                className={`p-2 mt-2 rounded-md ${
-                  blog.isNew ? "bg-green-200" : "bg-slate-50"
-                }`}
+                className={`bookmark-item ${blog.isNew ? "bookmark-item-new" : ""}`}
               >
-                <h3>{blog.title}</h3>
-                <p className="text-xs text-gray-500">(Reading Time: {blog.reading_time} min)</p>
+                <h3 className="bookmark-item-title">{blog.title}</h3>
+                <p className="bookmark-item-meta">
+                  (Reading Time: {blog.reading_time} min)
+                </p>
               </div>
             ))
           ) : (
-            <p className="text-center text-gray-500">No bookmarks available.</p>
+            <p className="bookmark-empty">No bookmarks available.</p>
           )}
         </div>
       </div>
@@ -39,8 +44,10 @@ Bookmarks.propTypes = {
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       isNew: PropTypes.bool, // Field to determine if the item is new
+      reading_time: PropTypes.number,
     })
-  ).isRequired
+  ).isRequired,
+  notification: PropTypes.string, // Prop for the notification message
 };
 
 export default Bookmarks;
