@@ -15,12 +15,12 @@
 }
 /* Green notification for "Added to bookmarks" */
 .notification.add {
-  background-color: #38a169; /* Green color for success */
+ background: linear-gradient(to right, #2d3748, #429e69,#2d3748); /* Gradient */ /* Green color for success */
 }
 
 /* Professional color notification for "Removed from bookmarks" */
 .notification.remove {
-  background-color: orangered; /* Blue color for informational/neutral */
+  background: linear-gradient(to right, #2d3748, #ff4500,#2d3748); /* Blue color for informational/neutral */
 }
 
 /* Keyframe animation for fading in and out */
