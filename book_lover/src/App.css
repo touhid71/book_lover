@@ -54,7 +54,7 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  background: linear-gradient(to right,#b0bdd5, #304f3d, #2d3748); /* Green to dark gradient */
+  background: linear-gradient(to right,#95a3bd, #304f3d, #2d3748); /* Green to dark gradient */
   color: white;
   padding: 10px;
   text-align: center;
@@ -65,8 +65,8 @@
 .bookmarks-container {
   width: 33.3333%; /* 1/3 width */
   margin-left: 16px; /* 1rem */
-  margin-top: 44px; /* 2.75rem */
-  padding-top: 12px; /* 0.75rem */
+  margin-top: 25px; /* 2.75rem */
+   /* 0.75rem */
   overflow: visible; /* Ensure no overflow constraint */
   position: relative; /* Ensure positioning context */
 }

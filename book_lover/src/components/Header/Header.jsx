@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import profile from '../../assets/images/profile.png';
-import logo2 from '../../assets/images/logo2.png';
+import logo from '../../assets/images/logo.png';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,7 +9,7 @@ const Header = () => {
         <div className='flex justify-between items-center p-4 max-w-4xl mx-auto border-b-2 bg-gray-800 text-white header'>
             <h1 className='flex items-center'>
                 <img 
-                    src={logo2}
+                    src={logo}
                     alt="Logo" 
                     className="h-16 w-16 mr-4" // Adjust logo size to 4rem (64px)
                 />
