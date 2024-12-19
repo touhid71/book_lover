@@ -9,8 +9,33 @@
   padding: 1rem 2rem;
   border-radius: 0.375rem; /* Rounded corners */
   z-index: 50;
-  transition: all 0.5s ease;
+  opacity: 0; /* Start hidden */
+  animation: fadeInOut 4s ease-in-out forwards; /* Apply the keyframe animation */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Keyframe animation for fading in and out */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8); /* Start with a smaller scale */
+  }
+  25% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05); /* Slightly larger than normal */
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1); /* Fully visible and normal size */
+  }
+  75% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05); /* Slightly larger again */
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8); /* Fade out and scale down */
+  }
 }
 
 /* For the Bookmark section */

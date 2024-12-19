@@ -21,10 +21,10 @@ function App() {
       setNotification(`Added "${blog.title}" to bookmarks.`);
     }
 
-    // Clear the notification after 3 seconds
+    // Clear the notification after 4 seconds (matching the CSS animation time)
     setTimeout(() => {
       setNotification("");
-    }, 3000);
+    }, 4000);
   };
 
   return (
