@@ -24,7 +24,7 @@ function App() {
     // Clear the notification after 4 seconds (matching the CSS animation time)
     setTimeout(() => {
       setNotification("");
-    }, 4000);
+    }, 3000);
   };
 
   return (
