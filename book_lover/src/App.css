@@ -54,11 +54,12 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: #2d3748; /* Dark background */
+  background: linear-gradient(to right,#b0bdd5, #304f3d, #2d3748); /* Green to dark gradient */
   color: white;
   padding: 10px;
   text-align: center;
 }
+
 
 /* Bookmarks container */
 .bookmarks-container {
@@ -83,7 +84,7 @@
 .bookmarks-title {
   font-size: 18px; /* 1.125rem */
   padding-left: 36px; /* 2.25rem */
-  background: linear-gradient(to right, #2d3748, #48bb78); /* Gradient */
+  background: linear-gradient(to right, #2d3748, #429e69,#2d3748); /* Gradient */
   color: white;
   padding-top: 11px; /* 0.25rem */
   padding-bottom: 11px; /* 0.25rem */
