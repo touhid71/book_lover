@@ -18,27 +18,24 @@
 @keyframes fadeInOut {
   0% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.4); /* Start with a smaller scale */
+    transform: translate(-50%, -50%) scale(0); /* Start with a smaller scale */
   }
   20% {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1.05); /* Slightly larger than normal */
+    transform: translate(-50%, -50%) scale(1.04); /* Slightly larger than normal */
   }
   40% {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1); /* Fully visible and normal size */
+    transform: translate(-50%, -50%) scale(0.9); /* Fully visible and normal size */
   }
   60% {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1.05); /* Slightly larger again */
   }
-  80% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(0); /* Slightly larger again */
-  }
+
   100% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(0.8); /* Fade out and scale down */
+    transform: translate(-50%, -50%) scale(0); /* Fade out and scale down */
   }
 }
 

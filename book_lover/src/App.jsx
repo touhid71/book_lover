@@ -14,17 +14,17 @@ function App() {
     if (isAlreadyBookmarked) {
       // If the blog is already bookmarked, remove it
       setBookmarks(bookmarks.filter((b) => b.id !== blog.id));
-      setNotification(`Removed "${blog.title}" from bookmarks.`);
+      setNotification(`Removed from bookmarks.`);
     } else {
       // Otherwise, add it to the bookmarks
       setBookmarks([...bookmarks, blog]);
-      setNotification(`Added "${blog.title}" to bookmarks.`);
+      setNotification(`Added to bookmarks.`);
     }
 
     // Clear the notification after 4 seconds (matching the CSS animation time)
     setTimeout(() => {
       setNotification("");
-    }, 3000);
+    }, 4000);
   };
 
   return (
